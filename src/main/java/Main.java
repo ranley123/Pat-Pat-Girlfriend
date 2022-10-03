@@ -5,6 +5,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import databases.DBConnector;
+import models.FlightOrder;
+import models.HotelOrder;
 import models.IOrder;
 import models.TrainOrder;
 import org.openqa.selenium.By;
@@ -30,7 +32,7 @@ public class Main {
         hotelCrawlerService = HotelCrawlerService.getInstance();
 
         connector = new DBConnector();
-//        login(FLIGHT_URL, flightCrawlerService);
+        login(HOTEL_URL, hotelCrawlerService);
 //        Timer timer = new Timer();
 //        timer.schedule(new PatPatGirlfriendTask("PatPatGirlfriend"),2000L,100000L);
 
@@ -98,10 +100,21 @@ public class Main {
             IOrder newOrder = service.parseByHTML(orderElement);
             if(newOrder == null)
                 continue;
-//            boolean status = connector.addTrainOrder((TrainOrder) trainOrder);
-//            if(status){
-//                newOrders.add(trainOrder);
-//            }
+
+            boolean status = false;
+            if(newOrder instanceof TrainOrder){
+                status = connector.addTrainOrder((TrainOrder) newOrder);
+            }
+            else if(newOrder instanceof FlightOrder){
+                status = connector.addFlightOrder((FlightOrder) newOrder);
+            }
+            else{
+                status = connector.addHotelOrder((HotelOrder) newOrder);
+            }
+
+            if(status){
+                newOrders.add(newOrder);
+            }
             System.out.println(newOrder);
         }
         driver.quit();
