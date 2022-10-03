@@ -8,25 +8,6 @@ public class FlightOrder implements IOrder{
     public String origin;
     public String destination;
     public LocalDate departureDate;
-
-    @Override
-    public String toString() {
-        return "FlightOrder{" +
-                "id='" + id + '\'' +
-                ", orderDate=" + orderDate +
-                ", origin='" + origin + '\'' +
-                ", destination='" + destination + '\'' +
-                ", departureDate=" + departureDate +
-                ", departureTime='" + departureTime + '\'' +
-                ", arriveTime='" + arriveTime + '\'' +
-                ", trainNumber='" + trainNumber + '\'' +
-                ", passenger='" + passenger + '\'' +
-                ", unit='" + unit + '\'' +
-                ", price=" + price +
-                ", status='" + status + '\'' +
-                '}';
-    }
-
     public String departureTime;
     public String arriveTime;
     public String trainNumber;

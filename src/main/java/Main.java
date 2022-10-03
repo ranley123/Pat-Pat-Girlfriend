@@ -18,16 +18,19 @@ public class Main {
     public static DBConnector connector;
     private static TrainCrawlerService trainCrawlerService = null;
     private static FlightCrawlerService flightCrawlerService = null;
+    private static HotelCrawlerService hotelCrawlerService = null;
     private static String ROOT_XPATH = "/html/body/div/div[2]/div/ul/li/div[2]/div/div[3]/ul";
     private static String TRAIN_URL = "https://my.ctrip.com/myinfo/domestictrain";
     private static String FLIGHT_URL = "https://my.ctrip.com/myinfo/flight";
+    private static String HOTEL_URL = "https://my.ctrip.com/myinfo/hotel";
 
     public static void main(String[] args) throws SQLException {
         trainCrawlerService = TrainCrawlerService.getInstance();
         flightCrawlerService = FlightCrawlerService.getInstance();
+        hotelCrawlerService = HotelCrawlerService.getInstance();
 
 //        connector = new DBConnector();
-        login(FLIGHT_URL, flightCrawlerService);
+        login(HOTEL_URL, hotelCrawlerService);
 //        Timer timer = new Timer();
 //        timer.schedule(new PatPatGirlfriendTask("PatPatGirlfriend"),2000L,100000L);
 
@@ -56,10 +59,6 @@ public class Main {
 
         }
         driver = new ChromeDriver();
-
-//        driver.get("https://my.ctrip.com/myinfo/domestictrain");
-//        driver.get("https://my.ctrip.com/myinfo/flight");
-
         driver.get(url);
 
         // 获取用户名输入框
