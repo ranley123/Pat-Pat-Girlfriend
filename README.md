@@ -1,11 +1,11 @@
-# Pat Pat Girlfriend
+# 拍拍女朋友
 
-## Introduction
-Set up a WeChat Public Account to 
-1. update my girdfriend about my newly purchased tickets.
-2. send out daily briefing, including weather, our love anniversaries.
+## 介绍
+使用测试微信公众号自动给女朋友推送信息，包括：
+- 每日快送：天气，恋爱纪念日，等等
+- 新增票务：新购买的火车票（即将上线机票和酒店）
 
-## Pre-requisites
-1. https://chromedriver.chromium.org/downloads to download Chrome Driver with corresponding version
-   1. Move the executable into the project folder
+## 前置条件
+前往https://chromedriver.chromium.org/downloads 以下载对应的chromedriver执行文件，将它移动到/Pat-Pat-Girlfriend/chromedriver.exe
+
    
