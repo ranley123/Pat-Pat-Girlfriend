@@ -29,8 +29,8 @@ public class Main {
         flightCrawlerService = FlightCrawlerService.getInstance();
         hotelCrawlerService = HotelCrawlerService.getInstance();
 
-//        connector = new DBConnector();
-        login(HOTEL_URL, hotelCrawlerService);
+        connector = new DBConnector();
+//        login(FLIGHT_URL, flightCrawlerService);
 //        Timer timer = new Timer();
 //        timer.schedule(new PatPatGirlfriendTask("PatPatGirlfriend"),2000L,100000L);
 

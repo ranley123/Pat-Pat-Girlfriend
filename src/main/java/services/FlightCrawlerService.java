@@ -38,8 +38,9 @@ public class FlightCrawlerService implements ICrawlerService{
         tmp = timeslot.split("：")[1].split(" ");
         LocalDate departureDate = LocalDate.parse(tmp[0]);
         String departureTime = tmp[1];
-        String arriveTime = tmp[3];
-        String trainNumber = tmp[4];
+        LocalDate arriveDate = LocalDate.parse(tmp[3]);
+        String arriveTime = tmp[4];
+        String flightNumber = tmp[5];
 
         String passenger = order.findElement(By.xpath(String.format("//*[@id=\"%s\"]/div/div[1]/ul/li[3]/span", idString))).getAttribute("innerHTML").split("：")[1];
 
@@ -47,7 +48,7 @@ public class FlightCrawlerService implements ICrawlerService{
         String unit = priceString.substring(0, 1);
         double price = Double.parseDouble(priceString.substring(1));
 
-        IOrder newOrder = new FlightOrder(id, orderDate, origin, destination, departureDate, departureTime, arriveTime, trainNumber, passenger, unit,price, status);
+        IOrder newOrder = new FlightOrder(id, orderDate, origin, destination, departureDate, departureTime, arriveDate, arriveTime, flightNumber, passenger, unit,price, status);
         return newOrder;
     }
 
